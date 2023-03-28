@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from rich import print
 from rich import box
@@ -40,10 +40,11 @@ class Header:
             "[b]Stock[/]Mate",
             datetime.now().ctime().replace(":", "[blink]:[/]"),
         )
-        return Panel(grid, style="black on green")
+        return Panel(grid, style="green on black")
 
 layout["Header"].size = 3
 layout["Lower"].size = 3
+layout["Header"].update(Header())
 
 
 print(layout)
