@@ -1,4 +1,5 @@
 from datetime import datetime
+import csv
 
 from rich import print
 from rich import box
@@ -49,19 +50,19 @@ class Header:
     
 def stock_level():
 
-    stock_levels = Panel(title = "Stock Levels", title_align = "left", box = box.SQUARE, border_style = "bold white")
+    stock_levels = Panel("", title = "Stock Levels", title_align = "left", box = box.SQUARE, border_style = "bold white")
     
     return stock_levels
 
-def expiration():
+def stock():
     stock_grid = Table.grid(expand=True)
     stock_grid.add_column("Product", justify="left")
     stock_grid.add_column("Prod. Date", justify="center")
     stock_grid.add_column("Exp. Date", justify="right")
     stock_grid.add_column("Supplier", justify="right")
     stock_grid.add_column("Amount / Units", justify="right")
-    stock_grid.add_row("Product", "Prod. Date", "Exp. Date")
-    stock_grid.add_row(" ", " ", " ")
+    stock_grid.add_row("Product", "Prod. Date", "Exp. Date", "Supplier", "Amount / Units")
+    stock_grid.add_row(" ", " ", " ", " ", " ")
     
     stock_grid.add_row("Oreos", "12/03/2023", "24/05/2023", "Mondelēz International, Inc", "500 boxes")
     stock_grid.add_row("Lays crisps", "26/03/2023", "19/04/2023", "PepsiCo", "200 boxes")
@@ -69,6 +70,11 @@ def expiration():
     stock_grid.add_row("H/S Shampoo", "25/03/2023", "13/12/2023", "Procter & Gamble", "200 bottles")
     stock_grid.add_row("Soap", "26/03/2023", "30/07/2023", "XYZ International", "400 boxes")
     stock_grid.add_row("Arwa Water", "25/03/2023", "11/12/2023", "Al Ahlia Group", "1000 bottles")
+    stock_grid.add_row("Masafi Water", "16/03/2023", "18/11/2023", "Masafi Group", "1000 bottles")
+    stock_grid.add_row("Show Cleaner", "29/03/2023","28/06/2023", "Lulu HyperMarket", "500 boxes")
+    stock_grid.add_row("Cloth Detergent", "25/03/2023", "26/06/2023", "Arial Group Int.", "400 bottles")
+    stock_grid.add_row("Sweet Biscuits", "25/03/2023", "15/09/2023", "Nestle Group", "700 boxes")
+    stock_grid.add_row("Cake Rusk", "16/03/2023", "25/06/2023", "Nestle Group", "800 boxes")
     
     
     expirations = Panel(stock_grid, title = "Expiration Database", title_align = "left", box = box.SQUARE, border_style = "bold white")
@@ -103,12 +109,33 @@ def Stores():
     
     return store_stats
 
+def test_table():
+    table = Table()
+
+    # open CSV file
+    with open('file.csv', 'r') as csvfile:
+        # create a CSV reader object
+        csvreader = csv.reader(csvfile)
+
+        # get header row and add to table
+        header = next(csvreader)
+        table.add_column(header[0], justify='left', no_wrap=True)
+        table.add_column(header[1], justify='left', no_wrap=True)
+        table.add_column(header[2], justify='left', no_wrap=True)
+        table.add_column(header[3], justify='left', no_wrap=True)
+
+        # loop through rows in CSV file and add to table
+        for row in csvreader:
+            table.add_row(row[0], row[1], row[2], row[3])
+            
+        return Panel(table, title = "Random Test", box = box.SQUARE, border_style = "bold white")
+
 layout["Header"].size = 3
 layout["Lower"].size = 3
 layout["Header"].update(Header())
 
-layout["upper_Box1"].update(stock_level())
-#layout["upper_Box2"].update(expiration())
+layout["upper_Box1"].update(stock())
+layout["upper_Box2"].update(test_table())
 layout["lower_Box1"].update(Stores())
 
 
