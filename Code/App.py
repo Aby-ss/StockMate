@@ -30,6 +30,11 @@ layout["Box1"].split_column(
     Layout(name = "upper_Box2")
 )
 
+layout["Box2"].split_column(
+    Layout(name = "lower_Box1"),
+    Layout(name = "lower_Box2")
+)
+
 class Header:
 
     def __rich__(self) -> Panel:
@@ -83,7 +88,7 @@ def expiration():
     return expirations
 
 def Stores():
-    stat_grid = grid.Table(expand=True)
+    stat_grid = Table.grid(expand=True)
     stat_grid.add_column("Store No.", justify="left")
     stat_grid.add_column("Location", justify="left")
     stat_grid.add_column("Status", justify="center")
@@ -93,7 +98,18 @@ def Stores():
     stat_grid.add_row(" ", " ", " ", " ")
     stat_grid.add_row(" ", " ", " ", " ")
 
-    stat_grid.add_row("01", "45th Law Street, North", "[b green]Open[/]", "[b yellow]Sustainable[/]")
+    stat_grid.add_row("01", "45th Law Street, North", "[b green]Open[/]", "[b green]Strong[/]")
+    stat_grid.add_row("02", "66th street alleyway, South", "[b red]Close[/]", "[b red]Weak[/]")
+    stat_grid.add_row("03", "City Center Mall, East", "[b green]Open[/]", "[b green]Strong[/]")
+    stat_grid.add_row("04", "55th Wall Street Zafron Buildg., South", "[b red]Close[/]", "[b yellow]Sustainable[/]")
+    stat_grid.add_row("05", "City Center Mall, South", "[b red]Close[/]", "[b green]Strong[/]")
+    stat_grid.add_row("06", "Global Island street 55th, West", "[b green]Open[/]", "[b red]Weak[/]")
+    stat_grid.add_row("07", "90th street Platinum Business Center, South-east", "[b green]Open[/]", "[b yellow]Sustainable[/]")
+    stat_grid.add_row("08", "98th streeet Dukeburg, South", "[b red]Close[/]", "[b yellow]Sustainable[/]")
+    stat_grid.add_row("09", "115th street alleyway Dukenburg, South-east", "[b green]Open[/]", "[b green]Strong[/]")
+    stat_grid.add_row("010", "87th street alleyway, South", "[b red]Close[/]", "[b red]Weak[/]")
+    stat_grid.add_row("011", "59th Broker House street, North", "[b green]Open[/]", "[b yellow]Empty[/]")
+    stat_grid.add_row("012", "69th street alleyway 420th Buildg., South", "[b red]Close[/]", "[b red]Weak[/]")
         
     store_stats = Panel(stat_grid, title = "Store Database", title_align = "left", box = box.SQUARE, border_style = "bold white")
     
@@ -105,7 +121,7 @@ layout["Header"].update(Header())
 
 layout["upper_Box1"].update(stock_level())
 layout["upper_Box2"].update(expiration())
-layout["Box2"].update(Stores())
+layout["lower_Box1"].update(Stores())
 
 
 print(layout)
