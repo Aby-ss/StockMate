@@ -82,12 +82,30 @@ def expiration():
     
     return expirations
 
+def Stores():
+    stat_grid = grid.Table(expand=True)
+    stat_grid.add_column("Store No.", justify="left")
+    stat_grid.add_column("Location", justify="left")
+    stat_grid.add_column("Status", justify="center")
+    stat_grid.add_column("Overall Stock", justify="center")
+    
+    stat_grid.add_row("Store No.", "Location", "Status", "Overall Stock")
+    stat_grid.add_row(" ", " ", " ", " ")
+    stat_grid.add_row(" ", " ", " ", " ")
+
+    stat_grid.add_row("01", "45th Law Street, North", "[b green]Open[/]", "[b yellow]Sustainable[/]")
+        
+    store_stats = Panel(stat_grid, title = "Store Database", title_align = "left", box = box.SQUARE, border_style = "bold white")
+    
+    return store_stats
+
 layout["Header"].size = 3
 layout["Lower"].size = 3
 layout["Header"].update(Header())
 
 layout["upper_Box1"].update(stock_level())
 layout["upper_Box2"].update(expiration())
+layout["Box2"].update(Stores())
 
 
 print(layout)
