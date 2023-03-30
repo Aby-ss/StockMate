@@ -49,7 +49,7 @@ class Header:
     
 def stock_level():
 
-    stock_levels = Panel(, title = "Stock Levels", title_align = "left", box = box.SQUARE, border_style = "bold white")
+    stock_levels = Panel(title = "Stock Levels", title_align = "left", box = box.SQUARE, border_style = "bold white")
     
     return stock_levels
 
