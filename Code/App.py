@@ -48,22 +48,8 @@ class Header:
         return Panel(grid, style="green on black")
     
 def stock_level():
-    stocklvl = Table.grid(expand=True)
-    stocklvl.add_column("Product", justify="left")
-    stocklvl.add_column("Supplier", justify="left")
-    stocklvl.add_column("Amount / Units", justify="right")
-    
-    stocklvl.add_row("Product", "Supplier", "Amount / Units")
-    stocklvl.add_row(" ", " ", " ")
 
-    stocklvl.add_row("Oreo", "Mondelēz International, Inc", "500 boxes")
-    stocklvl.add_row("Lays crisps", "PepsiCo", "200 boxes")
-    stocklvl.add_row("Almarai Milk", "Almarai", "250 bottles")
-    stocklvl.add_row("H/S Shampoo", "Procter & Gamble", "200 bottles")
-    stocklvl.add_row("Soap", "XYZ International", "400 boxes")
-    stocklvl.add_row("Arwa Water", "Al Ahlia Group", "1000 bottles")
-
-    stock_levels = Panel(stocklvl, title = "Stock Levels", title_align = "left", box = box.SQUARE, border_style = "bold white")
+    stock_levels = Panel(, title = "Stock Levels", title_align = "left", box = box.SQUARE, border_style = "bold white")
     
     return stock_levels
 
@@ -72,15 +58,17 @@ def expiration():
     stock_grid.add_column("Product", justify="left")
     stock_grid.add_column("Prod. Date", justify="center")
     stock_grid.add_column("Exp. Date", justify="right")
+    stock_grid.add_column("Supplier", justify="right")
+    stock_grid.add_column("Amount / Units", justify="right")
     stock_grid.add_row("Product", "Prod. Date", "Exp. Date")
     stock_grid.add_row(" ", " ", " ")
     
-    stock_grid.add_row("Oreos", "12/03/2023", "24/05/2023")
-    stock_grid.add_row("Lays crisps", "26/03/2023", "19/04/2023")
-    stock_grid.add_row("Almarai Milk", "29/03/2023", "12/05/2023")
-    stock_grid.add_row("H/S Shampoo", "25/03/2023", "13/12/2023")
-    stock_grid.add_row("Soap", "26/03/2023", "30/07/2023")
-    stock_grid.add_row("Arwa Water", "25/03/2023", "11/12/2023")
+    stock_grid.add_row("Oreos", "12/03/2023", "24/05/2023", "Mondelēz International, Inc", "500 boxes")
+    stock_grid.add_row("Lays crisps", "26/03/2023", "19/04/2023", "PepsiCo", "200 boxes")
+    stock_grid.add_row("Almarai Milk", "29/03/2023", "12/05/2023", "Almarai", "250 bottles")
+    stock_grid.add_row("H/S Shampoo", "25/03/2023", "13/12/2023", "Procter & Gamble", "200 bottles")
+    stock_grid.add_row("Soap", "26/03/2023", "30/07/2023", "XYZ International", "400 boxes")
+    stock_grid.add_row("Arwa Water", "25/03/2023", "11/12/2023", "Al Ahlia Group", "1000 bottles")
     
     
     expirations = Panel(stock_grid, title = "Expiration Database", title_align = "left", box = box.SQUARE, border_style = "bold white")
@@ -120,7 +108,7 @@ layout["Lower"].size = 3
 layout["Header"].update(Header())
 
 layout["upper_Box1"].update(stock_level())
-layout["upper_Box2"].update(expiration())
+#layout["upper_Box2"].update(expiration())
 layout["lower_Box1"].update(Stores())
 
 
