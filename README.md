@@ -22,7 +22,7 @@ An inventory management software should be capable of performing several key tas
 
 - Tracking inventory levels: The software should be able to track the current inventory levels of each product, so businesses can monitor when they need to restock items.
 
-- Managing purchase orders: The software should be able to generate purchase orders for products that need to be restocked, and keep track of orders as they are placed and received.
+- **Managing purchase orders**: The software should be able to generate purchase orders for products that need to be restocked, and keep track of orders as they are placed and received.
 
 - Forecasting demand: The software should be able to use past sales data and other information to forecast future demand for products, so businesses can plan for the future and adjust their inventory levels accordingly.
 
