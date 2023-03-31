@@ -1,14 +1,12 @@
-Serial Number,Address,Status,Capacity,Profit (USD)
-1,"4151 Parkview Dr, CA",Open,Full,3335
-2,"635 Elm St, CA",Close,Medium,1712
-3,"2205 Oakwood Ave, CA",Open,Empty,1117
-4,"3614 Broadway St, CA",Close,Full,4452
-5,"5632 Linden Rd, CA",Open,Medium,2291
-6,"2123 Maple St, CA",Close,Empty,4011
-7,"4182 Fairfax Dr, CA",Open,Full,3390
-8,"1834 Pine St, CA",Close,Medium,2022
-9,"3465 Oak Ln, CA",Open,Empty,3352
-10,"1019 Ash St, CA",Close,Full,3387
-11,"4929 Oak Ave, CA",Open,Medium,3824
-12,"1020 Ash St, CA",Close,Full,1426
-13,"4930 Oak Ave, CA",Open,Medium,4040
+Serial Number,Distributers,Contact,Last Contacted
+1,Nestle, (659) 872-3310,25/11/2022
+2,Tyson Foods,(144) 651-0892,06/01/2022
+3,Hershey's,(965) 437-2239,07/07/2022
+4,General Mills,(577) 803-1164,29/09/2022
+5,Kellogg's,(319) 684-7719,14/09/2022
+6,Unilever, (720) 986-6626,15/05/2022
+7,Hormel Foods,(478) 281-7841,05/04/2022
+8,Mondelez Int'l,(893) 530-5780,31/10/2022
+9,PepsiCo,(227) 926-2912,01/02/2022
+10,JBS,(643) 875-9198,29/08/2022
+11,McCormick & Co.,(659) 872-3311,26/04/2022

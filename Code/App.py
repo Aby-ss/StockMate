@@ -59,7 +59,7 @@ def stock():
     stock_grid = Table()
 
     # open CSV file
-    with open('file.csv', 'r') as csvfile:
+    with open('StockDatabase.csv', 'r') as csvfile:
         # create a CSV reader object
         csvreader = csv.reader(csvfile)
 
@@ -114,33 +114,30 @@ def Stores():
     
     return store_stats
 
-def test_table():
-    table = Table()
+def managing_suppliers():
+    distributor_grid = Table(show_header=True, header_style="bold")
 
-    # open CSV file
-    with open('file.csv', 'r') as csvfile:
-        # create a CSV reader object
-        csvreader = csv.reader(csvfile)
+    # Open the CSV file and read the contents
+    with open('Distributor_Database.csv', 'r') as file:
+        reader = csv.reader(file)
+        headers = next(reader)
 
-        # get header row and add to table
-        header = next(csvreader)
-        table.add_column(header[0], justify='left', no_wrap=True)
-        table.add_column(header[1], justify='left', no_wrap=True)
-        table.add_column(header[2], justify='left', no_wrap=True)
-        table.add_column(header[3], justify='left', no_wrap=True)
+        # Add the headers to the table
+        for header in headers:
+            distributor_grid.add_column(header)
 
-        # loop through rows in CSV file and add to table
-        for row in csvreader:
-            table.add_row(row[0], row[1], row[2], row[3])
+        # Add the data to the table
+        for row in reader:
+            distributor_grid.add_row(*[style_cell(cell) for cell in row])
             
-        return Panel(table, title = "Random Test", box = box.SQUARE, border_style = "bold white")
+    return Panel(distributor_grid, title = "Random Test", box = box.SQUARE, border_style = "bold white")
 
 layout["Header"].size = 3
 layout["Lower"].size = 3
 layout["Header"].update(Header())
 
 layout["upper_Box1"].update(stock())
-layout["upper_Box2"].update(test_table())
+layout["upper_Box2"].update(managing_suppliers())
 layout["lower_Box1"].update(Stores())
 
 
