@@ -20,7 +20,7 @@ My goal was to create a user-friendly application that could be easily integrate
 ## Goals for Stockmate 📈
 An inventory management software should be capable of performing several key tasks to help businesses effectively manage their inventory. Some of these tasks include:
 
-- Tracking inventory levels: The software should be able to track the current inventory levels of each product, so businesses can monitor when they need to restock items.
+- **Tracking inventory levels**: The software should be able to track the current inventory levels of each product, so businesses can monitor when they need to restock items.
 
 - **Managing purchase orders**: The software should be able to generate purchase orders for products that need to be restocked, and keep track of orders as they are placed and received.
 
