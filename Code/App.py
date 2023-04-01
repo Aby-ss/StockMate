@@ -73,7 +73,7 @@ def stock():
     stock_grid = Table()
 
     # open CSV file
-    with open('StockDatabase.csv', 'r') as csvfile:
+    with open('Databases/StockDatabase.csv', 'r') as csvfile:
         # create a CSV reader object
         csvreader = csv.reader(csvfile)
 
@@ -112,7 +112,7 @@ def Stores():
     stat_grid = Table(show_header=True, header_style="bold")
 
     # Open the CSV file and read the contents
-    with open('StoreData.csv', 'r') as file:
+    with open('Databases/StoreData.csv', 'r') as file:
         reader = csv.reader(file)
         headers = next(reader)
 
@@ -132,7 +132,7 @@ def managing_suppliers():
     distributor_grid = Table(show_header=True, header_style="bold")
 
     # Open the CSV file and read the contents
-    with open('Distributor_Database.csv', 'r') as file:
+    with open('Databases/Distributor_Database.csv', 'r') as file:
         reader = csv.reader(file)
         headers = next(reader)
 
