@@ -33,3 +33,20 @@ An inventory management software should be capable of performing several key tas
 - **Barcode scanning**: The software should be able to integrate with barcode scanners to make it easier to manage inventory levels and track products as they move in and out of the warehouse.
 
 - **Integrating with other systems**: The software should be able to integrate with other systems, such as point-of-sale systems or accounting software, to provide a seamless experience for businesses.
+
+## Disclaimer 👔
+- Locate the existing example files in the application. These files are typically located in a designated folder or directory within the application's file system.
+
+- Backup the existing example files by creating a copy of them in a different location on your computer. This step is important in case you need to revert back to the original example files at a later time.
+
+- Download the official files that you want to replace the example files with. These official files should be provided by the developer of the application or from a trusted source.
+
+- Rename the official files to match the names of the existing example files that you want to replace. This step is crucial since the application may be looking for specific file names to function properly.
+
+- Copy the renamed official files into the same directory where the existing example files were located. If you are prompted to replace the existing files with the new ones, confirm the replacement.
+
+- Open the application and navigate to the area where the example files were previously used. The application should now be using the official files that you replaced the example files with.
+
+- Test the application to ensure that it is functioning correctly with the new official files. If you encounter any issues, double-check that the official files were renamed correctly and placed in the correct directory.
+
+By following these steps, you should be able to replace existing example files with official files and proceed to use the application with the new files.
