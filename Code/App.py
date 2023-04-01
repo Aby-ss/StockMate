@@ -1,5 +1,7 @@
 from datetime import datetime
 import csv
+import numpy as np
+import asciichartpy
 
 from rich import print
 from rich import box
@@ -19,7 +21,7 @@ layout = Layout()
 layout.split_column(
     Layout(name = "Header"),
     Layout(name = "Body"),
-    Layout(name = "Lower")
+    Layout(name = "Footer")
 )
 
 layout["Body"].split_row(
@@ -41,11 +43,23 @@ class Header:
 
     def __rich__(self) -> Panel:
         grid = Table.grid(expand=True)
+        grid.add_column(justify="left")
         grid.add_column(justify="center", ratio=1)
         grid.add_column(justify="right")
         grid.add_row(
-            "[b]Stock[/]Mate",
-            datetime.now().ctime().replace(":", "[blink]:[/]"),
+            "📰", "[b]Stock[/]Mate", datetime.now().ctime().replace(":", "[blink]:[/]"),
+        )
+        return Panel(grid, style="green on black")
+    
+class Footer:
+
+    def __rich__(self) -> Panel:
+        grid = Table.grid(expand=True)
+        grid.add_column(justify="left")
+        grid.add_column(justify="center", ratio=1)
+        grid.add_column(justify="right")
+        grid.add_row(
+            "📰", "[b]Stock[/]Mate", "👔"
         )
         return Panel(grid, style="green on black")
     
@@ -130,15 +144,25 @@ def managing_suppliers():
         for row in reader:
             distributor_grid.add_row(*[style_cell(cell) for cell in row])
             
-    return Panel(distributor_grid, title = "Random Test", box = box.SQUARE, border_style = "bold white")
+    return Panel(distributor_grid, title = "Distributor Database", box = box.SQUARE, border_style = "bold white", title_align="left")
+
+def Sales_Data():
+    y_values = np.random.uniform(low=0.0, high=10.0, size=70)
+
+# create chart using asciichartpy module
+    chart = asciichartpy.plot(y_values, {"height": 16, "width": 50})
+    
+    return Panel(chart, title="Sales Data Analysis", title_align = "left", border_style = "bold white", box = box.SQUARE)
 
 layout["Header"].size = 3
-layout["Lower"].size = 3
+layout["Footer"].size = 3
 layout["Header"].update(Header())
+layout["Footer"].update(Footer())
 
 layout["upper_Box1"].update(stock())
 layout["upper_Box2"].update(managing_suppliers())
 layout["lower_Box1"].update(Stores())
+layout["lower_Box2"].update(Sales_Data())
 
 
 print(layout)
